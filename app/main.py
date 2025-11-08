@@ -193,11 +193,17 @@ if "entries" in st.session_state:
     with colA:
         if st.download_button(
             "⬇️ Download Updated JSONL",
-            data="\n".join(json.dumps(e, ensure_ascii=False) for e in st.session_state.entries),
+            data="\n".join(
+                json.dumps(e, ensure_ascii=False)
+                for e in (
+                    save_current_edits(st.session_state.current_idx, st.session_state.entries)
+                    or st.session_state.entries
+                )
+            ),
             file_name="annotated.jsonl",
             mime="application/jsonl"
         ):
-            st.success("File ready for download.")
+            st.success("✅ Edits saved and file ready for download.")
 
     with colB:
         if st.button("🧩 Load Original"):
