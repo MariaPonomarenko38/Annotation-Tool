@@ -1,6 +1,6 @@
 # Annotation Tool
 
-A lightweight Streamlit-based application for annotating data in the CAPID project.
+A lightweight Streamlit-based application for annotating data.
 
 ## Requirements
 
